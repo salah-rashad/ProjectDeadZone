@@ -1,0 +1,4 @@
+name=ProjectDeadZone
+id=ProjectDeadZone
+description=Rebuild, survive, and command. This mod transforms Project Zomboid into a tactical base defense experience. Scavenge for supplies, recruit survivors, build and fortify your compound, and defend it against escalating threats. Manage resources, explore hostile zones, and make every decision count in the fight to outlast the apocalypse.
+require=PZNS_Framework,UIAPI
