@@ -1,30 +1,27 @@
-local SurvivorsLoader = require("DZ/Survivor/SurvivorsLoader")
+require "DZ/Debug/DZ_DebugCommands"
+require "DZ/Core/DZ_Core"
+require "DZ/Core/DZ_UIManager"
+require "DZ/Core/DZ_CameraManager"
+require "DZ/UI/DZ_BuildMenu"
 
-local function OnGameStart()
-    -- disable or remove the player's control
-    local player = getPlayer()
-    if player then
-        -- player:setAlpha(0.0)                        -- Set transparency to fully transparent
-        player:setGodMod(true) -- Enable god mode
-        player:setInvisible(true) -- Make player invisible
-        player:setGhostMode(true) -- Enable ghost mode
-        player:setNoClip(true) -- Enable no-clip mode makes the player pass through walls
-        player:setIgnoreMovement(true) -- Ignore movement input
-        player:setIgnoreAimingInput(true) -- Ignore aiming input
-        -- player:setForceAim(true)                    -- Force aiming mode
-        player:setCanSeeAll(true) -- Reveal the map
-        player:setCanHearAll(true) -- Enable hearing all sounds
-        player:setTimedActionInstantCheat(true) -- Instant actions
+Events.OnGameStart.Add(function()
+    if DZ_Core.DEV_MODE then
+        DZ_DebugCommands.init()
     end
-end
 
-local function LoadSurvivors()
-    SurvivorsLoader.load()
-end
-
-Events.OnGameStart.Add(OnGameStart)
-Events.OnKeyPressed.Add(function(key)
-    if key == Keyboard.KEY_ADD then
-        LoadSurvivors()
-    end
+    DZ_Core.init()
+    DZ_UIManager.init()
+    DZ_Camera.init()
 end)
+
+DZ_UIManager.register("DZ_BuildingUI", function(x, y)
+    return DZ_BuildingUI:new(100, 100, 200, 300)
+end)
+
+DZ_UIManager.register("DZ_InventoryUI", function(x, y)
+    return DZ_InventoryUI:new(300, 100, 300, 300)
+end)
+
+-- HIDE VANILLA UI PANELS
+-- ISInventoryPane:setVisible(false)
+-- ISInventoryPane:removeFromUIManager()

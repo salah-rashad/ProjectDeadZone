@@ -1,9 +1,8 @@
-
 local SurvivorsLoader = {}
 
 function SurvivorsLoader.load()
 
-    local x, y, z = DZCamera.x, DZCamera.y, DZCamera.z
+    local x, y, z = DZ_Camera.x, DZ_Camera.y, DZ_Camera.z
     SurvivorManager:spawnRandomSurvivor(x, y, z)
 end
 

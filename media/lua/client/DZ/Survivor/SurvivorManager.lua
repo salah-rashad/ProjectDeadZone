@@ -1,4 +1,4 @@
-local SurvivorClasses = require("DZ/SurvivorClasses")
+local SurvivorClasses = require("DZ/Config/SurvivorClasses")
 
 --- @class SurvivorManager
 --- @field public selectedSurvivor PZNS_NPCSurvivor|nil

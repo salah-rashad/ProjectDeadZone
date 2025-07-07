@@ -59,8 +59,7 @@ local function onCreateUI()
     SurvivorsBarUI:saveLayout()
 end
 
-Events.OnCreateUI.Add(onCreateUI)
-Events.OnKeyPressed.Add(function(key)
+Events.OnCustomUIKey.Add(function(key)
     if key == Keyboard.KEY_NUMPAD0 then
         if SurvivorsBarUI then
             SurvivorsBarUI:close()
@@ -68,4 +67,6 @@ Events.OnKeyPressed.Add(function(key)
         onCreateUI()
     end
 end)
+
+-- Events.OnCreateUI.Add(onCreateUI)
 
